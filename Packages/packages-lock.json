@@ -1,7 +1,5 @@
 {
   "dependencies": {
-<<<<<<< HEAD
-=======
     "com.unity.2d.animation": {
       "version": "7.0.12",
       "depth": 1,
@@ -108,7 +106,6 @@
       },
       "url": "https://packages.unity.com"
     },
->>>>>>> af8ba508b949b9eb41c6d42ca37a2cdd8f31c5a2
     "com.unity.collab-proxy": {
       "version": "2.2.0",
       "depth": 0,
@@ -123,8 +120,6 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
-<<<<<<< HEAD
-=======
     "com.unity.feature.2d": {
       "version": "2.0.0",
       "depth": 0,
@@ -140,7 +135,6 @@
         "com.unity.2d.aseprite": "1.0.1"
       }
     },
->>>>>>> af8ba508b949b9eb41c6d42ca37a2cdd8f31c5a2
     "com.unity.ide.rider": {
       "version": "3.0.25",
       "depth": 0,
@@ -166,8 +160,6 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
-<<<<<<< HEAD
-=======
     "com.unity.mathematics": {
       "version": "1.2.6",
       "depth": 2,
@@ -175,7 +167,6 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
->>>>>>> af8ba508b949b9eb41c6d42ca37a2cdd8f31c5a2
     "com.unity.test-framework": {
       "version": "1.1.33",
       "depth": 0,
