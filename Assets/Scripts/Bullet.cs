@@ -6,6 +6,10 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] private float _speed;
 
+    private void Start()
+    {
+        GetComponent<SpriteRenderer>().material.color = Random.ColorHSV();
+    }
 
     void Update()
     {

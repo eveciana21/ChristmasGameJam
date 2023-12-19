@@ -21,7 +21,7 @@ public class SpawnManager : MonoBehaviour
             int randomLocation = Random.Range(0, _spawnPos.Length);
             GameObject newEnemy = Instantiate(_enemy, _spawnPos[randomLocation].transform.position, Quaternion.identity);
             newEnemy.transform.parent = _enemyContainer.transform;
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(1f);
         }
     }
 }
