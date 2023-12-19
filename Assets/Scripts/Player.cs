@@ -29,7 +29,7 @@ public class Player : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
         Vector3 direction = new Vector3(horizontal, vertical, 0);
-        transform.Translate(direction * Time.deltaTime * _mySpeed);
+        transform.Translate(direction * Time.deltaTime * _mySpeed, Space.World); //added Space.World to make movement disregard rotation
 
         //Clamp Player Within Screen Bounds
         transform.position = new Vector3(Mathf.Clamp(transform.position.x, -8, 8), transform.position.y, 0);
