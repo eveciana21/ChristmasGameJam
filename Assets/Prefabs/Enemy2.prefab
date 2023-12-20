@@ -284,6 +284,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6358ceffc69977642a9a1d5488564655, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _target: {fileID: 1090477219501410857, guid: 23a592acbc15c1444aa9c463e05dde5e, type: 3}
   _moveSpeed: 0.5
   _health: 3
+  fadeDuration: 2

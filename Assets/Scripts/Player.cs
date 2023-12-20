@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float _mySpeed;
     [SerializeField] private float _rotationSpeed;
     [SerializeField] private GameObject _bullet;
+    [SerializeField] private GameObject _bulletSpawnLocation;
 
     void Update()
     {
@@ -19,7 +20,8 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            Instantiate(_bullet, transform.position + new Vector3(0.2f,0,0), transform.rotation);
+            Instantiate(_bullet, _bulletSpawnLocation.transform.position, transform.rotation);
+            //fixed bullet position jank by adding empty object to reference position instead, child of player object
         }
     }
 
