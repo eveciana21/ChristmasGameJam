@@ -160,6 +160,7 @@ MonoBehaviour:
   _mySpeed: 5
   _rotationSpeed: 300
   _bullet: {fileID: 932247274298531198, guid: 1c187d3577911a44091898cf4cc5a661, type: 3}
+  _bulletSpawnLocation: {fileID: 4355899072814099740}
 --- !u!1 &8215650621303505206
 GameObject:
   m_ObjectHideFlags: 0
