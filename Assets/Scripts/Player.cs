@@ -8,7 +8,6 @@ public class Player : MonoBehaviour
     [SerializeField] private float _rotationSpeed;
     [SerializeField] private GameObject _bullet;
 
-
     void Update()
     {
         Movement();
@@ -20,7 +19,7 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            Instantiate(_bullet, transform.position, transform.rotation);
+            Instantiate(_bullet, transform.position + new Vector3(0.2f,0,0), transform.rotation);
         }
     }
 
