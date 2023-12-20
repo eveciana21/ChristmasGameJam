@@ -11,7 +11,6 @@ public class SpawnManager : MonoBehaviour
     private bool _spawnWaveOne, _spawnWaveTwo, _spawnWaveThree;
 
 
-
     private void Start()
     {
         SpawnPresents();

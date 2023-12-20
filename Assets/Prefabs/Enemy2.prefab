@@ -286,4 +286,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _moveSpeed: 0.5
   _health: 3
-  fadeDuration: 2
+  fadeDuration: 1

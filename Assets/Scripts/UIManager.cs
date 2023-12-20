@@ -6,11 +6,12 @@ using System;
 
 public class UIManager : MonoBehaviour
 {
-
     private bool _timerActive;
     private float _currentTime;
     [SerializeField] private float _minutesOnTimer;
     [SerializeField] private TMP_Text _timeText;
+
+    [SerializeField] private GameObject _gameOverText;
 
     void Start()
     {
@@ -19,6 +20,20 @@ public class UIManager : MonoBehaviour
     }
 
     void Update()
+    {
+        Timer();
+    }
+
+    public void TimerActive()
+    {
+        _timerActive = true;
+    }
+    public void TimerInactive()
+    {
+        _timerActive = false;
+    }
+
+    private void Timer()
     {
         if (_timerActive)
         {
@@ -32,13 +47,13 @@ public class UIManager : MonoBehaviour
         _timeText.text = time.Minutes.ToString() + " : " + time.Seconds.ToString();
     }
 
-    public void TimerActive()
+
+    public void GameOver()
     {
-        _timerActive = true;
-    }
-    public void TimerInactive()
-    {
-        _timerActive = false;
+        //Enables game over text and button
+
+        _gameOverText.SetActive(true);
+        Time.timeScale = 0; // pauses game speed
     }
 
 }

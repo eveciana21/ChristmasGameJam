@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
     private ScreenShake _mainCamera;
 
 
-    public float fadeDuration = 2.0f; // Time in seconds for the fade to complete
+    [SerializeField] private float fadeDuration = 1.0f; // Time in seconds for the fade to complete
 
     //variables for fade color
     private Material material;
@@ -32,10 +32,14 @@ public class Enemy : MonoBehaviour
     private GameObject _closestBorder;
     private bool _detectedBorder = false;
 
+    private int _presentsRemaining;
+    private UIManager _uiManager;
+
 
     private void Start()
     {
         _mainCamera = GameObject.Find("Main Camera").GetComponent<ScreenShake>();
+        _uiManager = GameObject.Find("UI Manager").GetComponent<UIManager>();
         _renderer = GetComponent<Renderer>();
 
         if (_renderer != null) //grabs original color of renderer to fade material after death
@@ -66,7 +70,8 @@ public class Enemy : MonoBehaviour
             foreach (GameObject currentPresent in _allPresents)
             {
                 _distanceToPresent = (currentPresent.transform.position - this.gameObject.transform.position).sqrMagnitude;
-                if(_distanceToPresent < _distanceToClosestPresent)
+
+                if (_distanceToPresent < _distanceToClosestPresent)
                 {
                     _distanceToClosestPresent = _distanceToPresent;
                     _closestPresent = currentPresent;
@@ -75,7 +80,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void DetectBorder() 
+    private void DetectBorder()
     {
         //finds all borders, checks distance of each against current position, closest distance object is stored in variable _closestBorder
         _allBorders = GameObject.FindGameObjectsWithTag("Border");
@@ -112,9 +117,8 @@ public class Enemy : MonoBehaviour
         }
         if (_grabbedPresent == true && _detectedBorder == true) //if grabbed present and detected a border, move towards border
         {
-            transform.position = Vector3.MoveTowards(transform.position, _closestBorder.transform.position, _moveSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, _closestBorder.transform.position, _moveSpeed / 2 * Time.deltaTime);
         }
-        
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -142,7 +146,7 @@ public class Enemy : MonoBehaviour
             other.gameObject.transform.position = this.gameObject.transform.position;
             _grabbedPresent = true;
             //makes enemy "grab" present
-        }    
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
