@@ -24,7 +24,7 @@ public class SpawnManager : MonoBehaviour
     {
         for (int i = 0; i < 3; i++)
         {
-            //Vector3 presentSpawnLocation = new Vector3(Random.Range(-2, 2), (Random.Range(-2, 2)), 0);
+            // spawns presents in the middle, and makes sure they cannot overlap when spawning
             Vector3 presentSpawnLocation = GetRandomSpawnPosition();
             Instantiate(_present[i], presentSpawnLocation, Quaternion.identity);
 
@@ -35,12 +35,12 @@ public class SpawnManager : MonoBehaviour
 
     Vector3 GetRandomSpawnPosition()
     {
-        
+        // spawns presents in the middle, and makes sure they cannot overlap when spawning
         Vector3 centerOfScreen = new Vector3(Random.Range(-1, 1), (Random.Range(-1, 1)), 0);
         Vector3 randomOffset = new Vector3(Random.insideUnitCircle.x, Random.insideUnitCircle.y, 0) * _spawnRadius;
 
         Vector3 randomPosition = centerOfScreen + randomOffset;
-        randomPosition.z = 0; // Assuming 2D game, adjust if in 3D space
+        randomPosition.z = 0;
 
         Collider2D[] colliders = Physics2D.OverlapCircleAll(randomPosition, 1f); // Adjust the radius as needed
 

@@ -39,10 +39,6 @@ public class Player : MonoBehaviour
             SliderDecrease();
         }
 
-
-
-
-
         if (Input.GetKeyDown(KeyCode.Space) && _canUseAnvil)
         {
             Instantiate(_rudolph, transform.position, Quaternion.identity);
@@ -83,7 +79,7 @@ public class Player : MonoBehaviour
         //Rotate player towards mouse at desired speed. -90 from angle to account for sprite facing up
     }
 
-    private void SliderIncrease()
+    private void SliderIncrease() //anvil increase slider over 25 seconds
     {
         float seconds = 25f;
         _uiManager.AnvilSlider(_sliderCooldownRemaining += 100 / seconds * Time.deltaTime);
@@ -93,9 +89,9 @@ public class Player : MonoBehaviour
             _sliderCooldownRemaining = 100;
         }
     }
-    private void SliderDecrease()
+    private void SliderDecrease() //anvil decrease slider over 5 seconds
     {
-        float seconds = 5f;
+        float seconds = 11f;
         _uiManager.AnvilSlider(_sliderCooldownRemaining -= 100 / seconds * Time.deltaTime);
         _anvilActive = true;
 

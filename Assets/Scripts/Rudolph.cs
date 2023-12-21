@@ -16,19 +16,19 @@ public class Rudolph : MonoBehaviour
         _randomNumber = Random.Range(0, 2);
         if (_randomNumber == 0)
         {
+            //coming from left side of screen, flip sprite
             transform.position = new Vector3(-11f, 3, 0);
-            transform.localScale = new Vector3(1, 1, 1);
+            transform.localScale = new Vector3(-2, 2, 2);
         }
         if (_randomNumber == 1)
         {
+            //coming from right side of screen
             transform.position = new Vector3(11f, 3, 0);
-            transform.localScale = new Vector3(-1, 1, 1);
+            transform.localScale = new Vector3(2, 2, 2);
         }
 
         _startYPos = transform.position.y;
-
         transform.position = new Vector3(transform.position.x, _startYPos + Mathf.Sin(Time.time * 0.5f), transform.position.z);
-
         StartCoroutine(DropAnvil());
     }
 
@@ -48,6 +48,7 @@ public class Rudolph : MonoBehaviour
 
     private void Movement()
     {
+        //Sin wave movement, up and down 
         if (_randomNumber == 0)
         {
             _direction = -1;
@@ -58,7 +59,6 @@ public class Rudolph : MonoBehaviour
         }
 
         transform.Translate(Vector3.left * _speed * _direction * Time.deltaTime);
-
         transform.position = new Vector3(transform.position.x, _startYPos + Mathf.Sin(Time.time * 1f), transform.position.z);
     }
 
@@ -66,7 +66,7 @@ public class Rudolph : MonoBehaviour
     {
         while (true)
         {
-            float randomRange = Random.Range(0.75f, 1.5f);
+            float randomRange = Random.Range(0.5f, 1.25f);
             Instantiate(_anvil, transform.position + new Vector3(0, -0.5f, 0), Quaternion.identity);
             yield return new WaitForSeconds(randomRange);
         }
