@@ -15,8 +15,8 @@ public class Enemy : MonoBehaviour
     private Material material;
     private Color originalColor;
     private float elapsedTime = 0f;
-    private Renderer _renderer;
-    //[SerializeField] private Collider2D _collider;
+    private SpriteRenderer _renderer;
+    private bool _isAlive;
 
     //target detection variables
     private float _distanceToClosestPresent = Mathf.Infinity;
@@ -35,7 +35,8 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         _mainCamera = GameObject.Find("Main Camera").GetComponent<ScreenShake>();
-        _renderer = GetComponent<Renderer>();
+        _renderer = GetComponent<SpriteRenderer>();
+        
 
         if (_renderer != null) //grabs original color of renderer to fade material after death
         {
@@ -49,7 +50,7 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         EnemyMovement();
-        if (_health <= 0)
+        if (_health <= 0 && !_isAlive)
         {
             Fade();
         }
@@ -120,6 +121,7 @@ public class Enemy : MonoBehaviour
         if (other.tag == "Bullet")
         {
             _health--;
+            StartCoroutine(ColorFlashOnDamage());
 
             if (_mainCamera != null)
             {
@@ -168,6 +170,15 @@ public class Enemy : MonoBehaviour
                 Destroy(this.gameObject);
             }
         }
+    }
+
+    IEnumerator ColorFlashOnDamage()
+    {
+        _isAlive = true;
+        _renderer.enabled = false;
+        yield return new WaitForSeconds(0.05f);
+        _renderer.enabled = true;
+        _isAlive = false;
     }
 }
 

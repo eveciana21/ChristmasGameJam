@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 using System;
 
 public class UIManager : MonoBehaviour
@@ -10,14 +11,16 @@ public class UIManager : MonoBehaviour
     private float _currentTime;
     [SerializeField] private float _minutesOnTimer;
     [SerializeField] private TMP_Text _timeText;
-
     [SerializeField] private GameObject _gameOverText;
+    [SerializeField] private Slider _anvilSlider;
+    [SerializeField] private GameObject _useAnvilText;
 
     void Start()
     {
         _timerActive = true;
         _currentTime = _minutesOnTimer * 60;
         _gameOverText.SetActive(false); // sets game over text false by default
+        _anvilSlider.value = 0;
     }
 
     void Update()
@@ -55,6 +58,22 @@ public class UIManager : MonoBehaviour
         _gameOverText.SetActive(true);
     }
 
+    public void AnvilSlider(float boostPercent)
+    {
+        _anvilSlider.value = boostPercent;
 
+        _anvilSlider.maxValue = 100f;
+        _anvilSlider.minValue = 0f;
+
+        if (_anvilSlider.value == 100)
+        {
+            _useAnvilText.SetActive(true);
+        }
+        else
+        {
+            _useAnvilText.SetActive(false);
+        }
+
+    }
 
 }

@@ -10,16 +10,43 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject _bulletSpawnLocation;
     private Animator _animator;
 
+    private float _sliderCooldownRemaining;
+
+    private UIManager _uiManager;
+    [SerializeField] private bool _canUseAnvil;
+    private bool _anvilActive;
 
     private void Start()
     {
         _animator = GetComponent<Animator>();
+        _uiManager = GameObject.Find("UI Manager").GetComponent<UIManager>();
     }
     void Update()
     {
         Movement();
         RotatePlayertoMousePosition();
         Fire();
+
+        if (_canUseAnvil == false && !_anvilActive)
+        {
+            SliderIncrease();
+        }
+
+        if (_anvilActive == true)
+        {
+            SliderDecrease();
+        }
+
+
+
+
+
+        if (Input.GetKeyDown(KeyCode.Space) && _canUseAnvil)
+        {
+            _canUseAnvil = false;
+            _anvilActive = true;
+        }
+
     }
 
     private void Fire()
@@ -52,5 +79,29 @@ public class Player : MonoBehaviour
         transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, 0, angle - 90f), _rotationSpeed * Time.deltaTime);
         //Rotate player towards mouse at desired speed. -90 from angle to account for sprite facing up
     }
+
+    private void SliderIncrease()
+    {
+        float seconds = 25f;
+        _uiManager.AnvilSlider(_sliderCooldownRemaining += 100 / seconds * Time.deltaTime);
+        if (_sliderCooldownRemaining >= 100)
+        {
+            _canUseAnvil = true;
+            _sliderCooldownRemaining = 100;
+        }
+    }
+    private void SliderDecrease()
+    {
+        float seconds = 5f;
+        _uiManager.AnvilSlider(_sliderCooldownRemaining -= 100 / seconds * Time.deltaTime);
+        _anvilActive = true;
+
+        if (_sliderCooldownRemaining <= 1)
+        {
+            _canUseAnvil = false;
+            _anvilActive = false;
+        }
+    }
+
 
 }
