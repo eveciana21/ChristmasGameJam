@@ -17,6 +17,7 @@ public class UIManager : MonoBehaviour
     {
         _timerActive = true;
         _currentTime = _minutesOnTimer * 60;
+        _gameOverText.SetActive(false); // sets game over text false by default
     }
 
     void Update()
@@ -47,13 +48,13 @@ public class UIManager : MonoBehaviour
         _timeText.text = time.Minutes.ToString() + " : " + time.Seconds.ToString();
     }
 
-
     public void GameOver()
     {
-        //Enables game over text and button
-
+        //Enables game over text and button & pauses game speed
+        Time.timeScale = 0;
         _gameOverText.SetActive(true);
-        Time.timeScale = 0; // pauses game speed
     }
+
+
 
 }

@@ -6,7 +6,7 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] private float _speed;
     private int _randomValue;
-
+    private Vector3 _direction;
     private void Start()
     {
         _randomValue = Random.Range(0, 15);

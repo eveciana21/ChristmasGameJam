@@ -7,7 +7,7 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private GameObject[] _enemy;
     [SerializeField] private GameObject _enemyContainer;
     [SerializeField] private GameObject[] _spawnPos;
-    [SerializeField] private GameObject _present;
+    [SerializeField] private GameObject[] _present;
     private bool _spawnWaveOne, _spawnWaveTwo, _spawnWaveThree;
 
 
@@ -24,7 +24,7 @@ public class SpawnManager : MonoBehaviour
         for (int i = 0; i < 3; i++)
         {
             Vector3 presentSpawnLocation = new Vector3(Random.Range(-2, 2), (Random.Range(-2, 2)), 0);
-            Instantiate(_present, presentSpawnLocation, Quaternion.identity);
+            Instantiate(_present[i], presentSpawnLocation, Quaternion.identity);
 
             //spawns 3 presents randomly in a 4x4 square in the middle. Called once in Start
             //note: left presents unparented outside a container since enemy is going to make them their child to move

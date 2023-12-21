@@ -32,14 +32,9 @@ public class Enemy : MonoBehaviour
     private GameObject _closestBorder;
     private bool _detectedBorder = false;
 
-    private int _presentsRemaining;
-    private UIManager _uiManager;
-
-
     private void Start()
     {
         _mainCamera = GameObject.Find("Main Camera").GetComponent<ScreenShake>();
-        _uiManager = GameObject.Find("UI Manager").GetComponent<UIManager>();
         _renderer = GetComponent<Renderer>();
 
         if (_renderer != null) //grabs original color of renderer to fade material after death
@@ -58,7 +53,6 @@ public class Enemy : MonoBehaviour
         {
             Fade();
         }
-
     }
 
     private void DetectTarget() //called at start and if initial found is destroyed

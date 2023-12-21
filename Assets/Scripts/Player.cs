@@ -8,7 +8,13 @@ public class Player : MonoBehaviour
     [SerializeField] private float _rotationSpeed;
     [SerializeField] private GameObject _bullet;
     [SerializeField] private GameObject _bulletSpawnLocation;
+    private Animator _animator;
 
+
+    private void Start()
+    {
+        _animator = GetComponent<Animator>();
+    }
     void Update()
     {
         Movement();
@@ -20,6 +26,7 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
+            _animator.SetTrigger("Throw");
             Instantiate(_bullet, _bulletSpawnLocation.transform.position, transform.rotation);
             //fixed bullet position jank by adding empty object to reference position instead, child of player object
         }
@@ -45,4 +52,5 @@ public class Player : MonoBehaviour
         transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(0, 0, angle - 90f), _rotationSpeed * Time.deltaTime);
         //Rotate player towards mouse at desired speed. -90 from angle to account for sprite facing up
     }
+
 }
