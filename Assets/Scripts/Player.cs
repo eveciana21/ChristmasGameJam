@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    private Animator _animator;
+    private UIManager _uiManager;
+
     [SerializeField] private float _mySpeed;
     [SerializeField] private float _rotationSpeed;
     [SerializeField] private GameObject _bullet;
     [SerializeField] private GameObject _bulletSpawnLocation;
-    private Animator _animator;
 
     private float _sliderCooldownRemaining;
-
-    private UIManager _uiManager;
-    [SerializeField] private bool _canUseAnvil;
+    private bool _canUseAnvil;
     private bool _anvilActive;
+
+    [SerializeField] private GameObject _rudolph;
 
     private void Start()
     {
@@ -43,6 +45,7 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && _canUseAnvil)
         {
+            Instantiate(_rudolph, transform.position, Quaternion.identity);
             _canUseAnvil = false;
             _anvilActive = true;
         }

@@ -16,7 +16,6 @@ public class Enemy : MonoBehaviour
     private Color originalColor;
     private float elapsedTime = 0f;
     private SpriteRenderer _renderer;
-    private bool _isAlive;
 
     //target detection variables
     private float _distanceToClosestPresent = Mathf.Infinity;
@@ -36,7 +35,7 @@ public class Enemy : MonoBehaviour
     {
         _mainCamera = GameObject.Find("Main Camera").GetComponent<ScreenShake>();
         _renderer = GetComponent<SpriteRenderer>();
-        
+
 
         if (_renderer != null) //grabs original color of renderer to fade material after death
         {
@@ -50,7 +49,7 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         EnemyMovement();
-        if (_health <= 0 && !_isAlive)
+        if (_health <= 0)
         {
             Fade();
         }
@@ -97,7 +96,6 @@ public class Enemy : MonoBehaviour
 
     private void EnemyMovement()
     {
-
         if (_closestPresent != null && _grabbedPresent == false) //if detected present and not grabbed, move towards present
         {
             transform.position = Vector3.MoveTowards(transform.position, _closestPresent.transform.position, _moveSpeed * Time.deltaTime);
@@ -134,6 +132,21 @@ public class Enemy : MonoBehaviour
                 _moveSpeed = 0;
             }
             Destroy(other.gameObject);
+        }
+        if (other.tag == "Anvil")
+        {
+            _health -= 5;
+            StartCoroutine(ColorFlashOnDamage());
+
+            if (_mainCamera != null)
+            {
+                _mainCamera.CameraShake();
+            }
+            if (_health <= 0)
+            {
+                GetComponent<Collider2D>().enabled = false;
+                _moveSpeed = 0;
+            }
         }
 
         if (other.tag == "Present")
@@ -174,11 +187,9 @@ public class Enemy : MonoBehaviour
 
     IEnumerator ColorFlashOnDamage()
     {
-        _isAlive = true;
         _renderer.enabled = false;
         yield return new WaitForSeconds(0.05f);
         _renderer.enabled = true;
-        _isAlive = false;
     }
 }
 

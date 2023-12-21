@@ -8,6 +8,7 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private GameObject _enemyContainer;
     [SerializeField] private GameObject[] _spawnPos;
     [SerializeField] private GameObject[] _present;
+    private float _spawnRadius = 1f;
     private bool _spawnWaveOne, _spawnWaveTwo, _spawnWaveThree;
 
 
@@ -23,13 +24,39 @@ public class SpawnManager : MonoBehaviour
     {
         for (int i = 0; i < 3; i++)
         {
-            Vector3 presentSpawnLocation = new Vector3(Random.Range(-2, 2), (Random.Range(-2, 2)), 0);
+            //Vector3 presentSpawnLocation = new Vector3(Random.Range(-2, 2), (Random.Range(-2, 2)), 0);
+            Vector3 presentSpawnLocation = GetRandomSpawnPosition();
             Instantiate(_present[i], presentSpawnLocation, Quaternion.identity);
 
             //spawns 3 presents randomly in a 4x4 square in the middle. Called once in Start
             //note: left presents unparented outside a container since enemy is going to make them their child to move
         }
     }
+
+    Vector3 GetRandomSpawnPosition()
+    {
+        
+        Vector3 centerOfScreen = new Vector3(Random.Range(-1, 1), (Random.Range(-1, 1)), 0);
+        Vector3 randomOffset = new Vector3(Random.insideUnitCircle.x, Random.insideUnitCircle.y, 0) * _spawnRadius;
+
+        Vector3 randomPosition = centerOfScreen + randomOffset;
+        randomPosition.z = 0; // Assuming 2D game, adjust if in 3D space
+
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(randomPosition, 1f); // Adjust the radius as needed
+
+        // Check if there are any colliders in the spawn area
+        while (colliders.Length > 0)
+        {
+            randomOffset = new Vector3(Random.insideUnitCircle.x, Random.insideUnitCircle.y, 0) * _spawnRadius;
+            randomPosition = centerOfScreen + randomOffset;
+            randomPosition.z = 0;
+
+            colliders = Physics2D.OverlapCircleAll(randomPosition, 1f);
+        }
+
+        return randomPosition;
+    }
+
 
     IEnumerator EnemySpawn()
     {

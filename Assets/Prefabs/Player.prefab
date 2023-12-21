@@ -161,6 +161,7 @@ MonoBehaviour:
   _rotationSpeed: 300
   _bullet: {fileID: 932247274298531198, guid: 1c187d3577911a44091898cf4cc5a661, type: 3}
   _bulletSpawnLocation: {fileID: 4355899072814099740}
+  _rudolph: {fileID: 2691556394958313818, guid: a085815f6039ff54f90d122376365750, type: 3}
 --- !u!95 &1326840599
 Animator:
   serializedVersion: 5

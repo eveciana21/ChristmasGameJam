@@ -16,21 +16,20 @@ public class Rudolph : MonoBehaviour
         _randomNumber = Random.Range(0, 2);
         if (_randomNumber == 0)
         {
-            transform.position = new Vector3(-11.5f, 2, 0);
+            transform.position = new Vector3(-11f, 3, 0);
             transform.localScale = new Vector3(1, 1, 1);
         }
         if (_randomNumber == 1)
         {
-            transform.position = new Vector3(11.5f, 2, 0);
+            transform.position = new Vector3(11f, 3, 0);
             transform.localScale = new Vector3(-1, 1, 1);
         }
 
         _startYPos = transform.position.y;
 
-        transform.position = new Vector3(transform.position.x, _startYPos + Mathf.Sin(Time.time * 1.5f), transform.position.z);
+        transform.position = new Vector3(transform.position.x, _startYPos + Mathf.Sin(Time.time * 0.5f), transform.position.z);
 
         StartCoroutine(DropAnvil());
-
     }
 
     void Update()
@@ -60,16 +59,16 @@ public class Rudolph : MonoBehaviour
 
         transform.Translate(Vector3.left * _speed * _direction * Time.deltaTime);
 
-        transform.position = new Vector3(transform.position.x, _startYPos + Mathf.Sin(Time.time * 1.5f), transform.position.z);
+        transform.position = new Vector3(transform.position.x, _startYPos + Mathf.Sin(Time.time * 1f), transform.position.z);
     }
 
     IEnumerator DropAnvil()
     {
         while (true)
         {
-            Instantiate(_anvil, transform.position, Quaternion.identity);
-            yield return new WaitForSeconds(1);
+            float randomRange = Random.Range(0.75f, 1.5f);
+            Instantiate(_anvil, transform.position + new Vector3(0, -0.5f, 0), Quaternion.identity);
+            yield return new WaitForSeconds(randomRange);
         }
-
     }
 }

@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 75799253487275422}
   - component: {fileID: 75799253487275423}
   - component: {fileID: 75799253487275416}
-  m_Layer: 0
+  - component: {fileID: 2483802174002403526}
+  m_Layer: 15
   m_Name: Anvil
-  m_TagString: Untagged
+  m_TagString: Anvil
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -115601165
   m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: ce78f49616c0d004094c376ead13bd52, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -133,3 +134,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.1408052, y: 0.4757119}
   m_EdgeRadius: 0
+--- !u!114 &2483802174002403526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 75799253487275417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23e6433cafbc47e40a834ad2f1dc2e31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
