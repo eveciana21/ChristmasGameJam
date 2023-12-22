@@ -11,11 +11,11 @@ public class UIMainMenu : MonoBehaviour
     [SerializeField] private float delay = 0.1f;
 
     [SerializeField] private GameObject _dialogBox;
-    [SerializeField] private GameObject _xBox;
+    [SerializeField] private GameObject _exitDialogBoxButton;
 
     private void Start()
     {
-        _xBox.SetActive(false);
+        _exitDialogBoxButton.SetActive(false);
         _dialogBox.SetActive(false);
     }
 
@@ -28,7 +28,7 @@ public class UIMainMenu : MonoBehaviour
 
             if (i == fullText.Length)
             {
-                _xBox.SetActive(true);
+                _exitDialogBoxButton.SetActive(true);
             }
         }
     }
@@ -38,4 +38,6 @@ public class UIMainMenu : MonoBehaviour
         _dialogBox.SetActive(true);
         StartCoroutine(TypeText());
     }
+
+
 }

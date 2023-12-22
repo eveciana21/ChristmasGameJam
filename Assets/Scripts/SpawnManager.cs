@@ -15,6 +15,12 @@ public class SpawnManager : MonoBehaviour
     private void Start()
     {
         SpawnPresents();
+        StartCoroutine(StartGameCoroutine());
+    }
+
+    IEnumerator StartGameCoroutine()
+    {
+        yield return new WaitForSeconds(3);
         _spawnWaveOne = true;
         StartCoroutine(EnemySpawn());
         StartCoroutine(WaveIncrease());

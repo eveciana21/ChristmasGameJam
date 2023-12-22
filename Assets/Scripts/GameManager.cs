@@ -7,11 +7,17 @@ public class GameManager : MonoBehaviour
 {
     private Present[] _present;
     private UIManager _uiManager;
+    [SerializeField] private GameObject _controlsBox;
+    private bool _getUIManager;
+
 
     private void Start()
     {
         Time.timeScale = 1;
-        _uiManager = GameObject.Find("UI Manager").GetComponent<UIManager>();
+        if (_getUIManager == true)
+        {
+            _uiManager = GameObject.Find("UI Manager").GetComponent<UIManager>();
+        }
     }
 
     private void Update()
@@ -21,12 +27,23 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
+        _getUIManager = true;
         SceneManager.LoadScene(1);
     }
 
     public void MainMenu()
     {
+        _getUIManager = false;
         SceneManager.LoadScene(0);
+    }
+
+    public void Controls()
+    {
+        _controlsBox.SetActive(true);
+    }
+    public void ExitControlsBox()
+    {
+        _controlsBox.SetActive(false);
     }
 
     public void QuitGame()
@@ -42,7 +59,10 @@ public class GameManager : MonoBehaviour
 
         if (numberOfInstances <= 0)
         {
-            _uiManager.GameOver();
+            if (_uiManager != null)
+            {
+                _uiManager.GameOver();
+            }
         }
     }
 
