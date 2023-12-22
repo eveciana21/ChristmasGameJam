@@ -14,6 +14,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject _gameOverText;
     [SerializeField] private Slider _anvilSlider;
     [SerializeField] private GameObject _useAnvilText;
+    [SerializeField] private GameObject _victoryText;
 
     void Start()
     {
@@ -44,6 +45,8 @@ public class UIManager : MonoBehaviour
             _currentTime = _currentTime - Time.deltaTime;
             if (_currentTime <= 0)
             {
+                Time.timeScale = 0;
+                _victoryText.SetActive(true);
                 _timerActive = false;
             }
         }
