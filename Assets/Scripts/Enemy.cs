@@ -102,6 +102,7 @@ public class Enemy : MonoBehaviour
         }
         if (_closestPresent == null) //retargets closest present if initial becomes null or destroyed
         {
+            _distanceToClosestPresent = Mathf.Infinity;
             DetectTarget();
         }
         if (_grabbedPresent == true) //when enemy grabs present, detects the closest boundary
@@ -165,6 +166,8 @@ public class Enemy : MonoBehaviour
             other.gameObject.transform.parent = null;
             _detectedBorder = false;
             _grabbedPresent = false;
+            _distanceToClosestPresent = Mathf.Infinity;
+            _distanceToClosestBorder = Mathf.Infinity;
             //resets grab interaction when exiting collider
         }
     }
