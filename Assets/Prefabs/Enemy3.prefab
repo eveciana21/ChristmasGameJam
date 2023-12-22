@@ -285,6 +285,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveSpeed: 0.25
-  _health: 3
+  _health: 5
   _enemyBullet: {fileID: 7990488559296430861, guid: 492f2d671dbebac489d8da3d732ed7af, type: 3}
-  fadeDuration: 1
+  _fadeDuration: 1
+  _startFadingOnStart: 1

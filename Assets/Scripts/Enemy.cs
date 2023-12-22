@@ -10,17 +10,12 @@ public class Enemy : MonoBehaviour
     [SerializeField] private GameObject _enemyBullet;
     private bool _canFire = true;
 
-
-
     //variables for fade color
-    [SerializeField] private Material _material;
+    private Material _material;
     private Color _originalColor;
     private float _elapsedTime = 0f;
     private SpriteRenderer _renderer;
     [SerializeField] private float _fadeDuration = 1.0f; // Time in seconds for the fade to complete
-
-    public bool _startFadingOnStart = true;
-
 
     //target detection variables
     private float _distanceToClosestPresent = Mathf.Infinity;
@@ -43,7 +38,6 @@ public class Enemy : MonoBehaviour
 
         if (_renderer != null) //grabs original color of renderer to fade material after death
         {
-
             _material = _renderer.material;
             _originalColor = _material.color;
         }
@@ -57,8 +51,7 @@ public class Enemy : MonoBehaviour
         if (_health <= 0)
         {
             _canFire = false;
-            //Fade();
-            FadeTest();
+            Fade();
         }
         if (_canFire == true)
         {
@@ -191,27 +184,8 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    /*private void Fade() //Fade object over fadeDuration after death
+    private void Fade() //Fade object over fadeDuration after death
     {
-        if (material != null)
-        {
-
-            elapsedTime += Time.deltaTime; // Increment elapsed time
-            float lerpFactor = Mathf.Clamp01(elapsedTime / fadeDuration); //Calculate the lerp factor between 0 and 1 based on elapsed time and fade duration
-            Color newColor = new Color(originalColor.r, originalColor.g, originalColor.b, Mathf.Lerp(originalColor.a, 0f, lerpFactor)); // Lerp the alpha value of the color
-            material.color = newColor; // Update the material color
-
-            if (lerpFactor >= 1f) // if fade Complete, destroy object
-            {
-                Destroy(this.gameObject);
-            }
-        }
-    }*/
-
-    private void FadeTest() //Fade object over fadeDuration after death
-    {
-        if (_material != null)
-        {
         SpriteRenderer[] childRenderer = GetComponentsInChildren<SpriteRenderer>();
         foreach (SpriteRenderer renderer in childRenderer)
         {
@@ -225,8 +199,6 @@ public class Enemy : MonoBehaviour
                 Destroy(this.gameObject);
             }
         }
-
-         }
     }
 
     IEnumerator ColorFlashOnDamage()
