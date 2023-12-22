@@ -348,8 +348,8 @@ GameObject:
   - component: {fileID: 8632349121399473667}
   - component: {fileID: -8624961642239786397}
   - component: {fileID: 5084694244046826898}
-  - component: {fileID: 877960006}
   - component: {fileID: 2653702120646459581}
+  - component: {fileID: 877960006}
   m_Layer: 0
   m_Name: Enemy2
   m_TagString: Enemy
@@ -412,24 +412,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &877960006
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8632349121399473669}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6358ceffc69977642a9a1d5488564655, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _moveSpeed: 0.5
-  _health: 2
-  _enemyBullet: {fileID: 7990488559296430861, guid: 492f2d671dbebac489d8da3d732ed7af, type: 3}
-  _material: {fileID: 0}
-  _fadeDuration: 1
-  _startFadingOnStart: 1
 --- !u!212 &2653702120646459581
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -482,3 +464,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &877960006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8632349121399473669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6358ceffc69977642a9a1d5488564655, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moveSpeed: 0.5
+  _health: 2
+  _enemyBullet: {fileID: 7990488559296430861, guid: 492f2d671dbebac489d8da3d732ed7af, type: 3}
+  _material: {fileID: 0}
+  _fadeDuration: 1
+  _startFadingOnStart: 1
