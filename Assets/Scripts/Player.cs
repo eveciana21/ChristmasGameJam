@@ -17,17 +17,23 @@ public class Player : MonoBehaviour
     private bool _anvilActive;
 
     [SerializeField] private GameObject _rudolph;
+    private bool _isFrozen = false;
+    private SpriteRenderer _spriteRenderer;
 
     private void Start()
     {
         _animator = GetComponent<Animator>();
         _uiManager = GameObject.Find("UI Manager").GetComponent<UIManager>();
+        _spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
     }
     void Update()
     {
-        Movement();
-        RotatePlayertoMousePosition();
-        Fire();
+        if (_isFrozen == false)
+        {
+            Movement();
+            RotatePlayertoMousePosition();
+            Fire();
+        }
 
         if (_canUseAnvil == false && !_anvilActive)
         {
@@ -102,5 +108,22 @@ public class Player : MonoBehaviour
         }
     }
 
+    IEnumerator PlayerFreeze()
+    {
+        _isFrozen = true;
+        _spriteRenderer.color = Color.blue;
+        yield return new WaitForSeconds(1f);
+        _spriteRenderer.color = Color.white;
+        _isFrozen = false;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("EnemyBullet"))
+        {
+            StartCoroutine(PlayerFreeze());
+            Destroy(other.gameObject);
+        }
+    }
 
 }

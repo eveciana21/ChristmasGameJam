@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - Present
   - Anvil
+  - EnemyBullet
   layers:
   - Default
   - TransparentFX

@@ -7,7 +7,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float _moveSpeed;
     [SerializeField] private int _health;
     private ScreenShake _mainCamera;
-
+    [SerializeField] private GameObject _enemyBullet;
+    private bool _canFire = true;
 
     [SerializeField] private float fadeDuration = 1.0f; // Time in seconds for the fade to complete
 
@@ -36,7 +37,6 @@ public class Enemy : MonoBehaviour
         _mainCamera = GameObject.Find("Main Camera").GetComponent<ScreenShake>();
         _renderer = GetComponent<SpriteRenderer>();
 
-
         if (_renderer != null) //grabs original color of renderer to fade material after death
         {
             material = _renderer.material;
@@ -52,6 +52,10 @@ public class Enemy : MonoBehaviour
         if (_health <= 0)
         {
             Fade();
+        }
+        if (_canFire == true)
+        {
+            StartCoroutine(EnemyFire());
         }
     }
 
@@ -113,6 +117,14 @@ public class Enemy : MonoBehaviour
         {
             transform.position = Vector3.MoveTowards(transform.position, _closestBorder.transform.position, _moveSpeed / 2 * Time.deltaTime);
         }
+    }
+
+    IEnumerator EnemyFire()
+    {
+        _canFire = false;
+        yield return new WaitForSeconds(Random.Range(5f, 10f));
+        Instantiate(_enemyBullet, transform.position, Quaternion.identity);
+        _canFire = true;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
