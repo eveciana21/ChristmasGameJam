@@ -7,13 +7,13 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private GameObject[] _enemy;
     [SerializeField] private GameObject _enemyContainer;
     [SerializeField] private GameObject[] _spawnPos;
-    [SerializeField] private GameObject[] _present;
+    //[SerializeField] private GameObject[] _present;
     private bool _spawnWaveOne, _spawnWaveTwo, _spawnWaveThree, _spawnWaveFour;
 
 
     private void Start()
     {
-        SpawnPresents();
+       // SpawnPresents();
         StartCoroutine(StartGameCoroutine());
     }
 
@@ -25,7 +25,7 @@ public class SpawnManager : MonoBehaviour
         StartCoroutine(WaveIncrease());
     }
 
-    private void SpawnPresents()
+    /*private void SpawnPresents()
     {
         for (int i = 0; i < 3; i++)
         {
@@ -36,7 +36,7 @@ public class SpawnManager : MonoBehaviour
             //spawns 3 presents randomly in a 4x4 square in the middle. Called once in Start
             //note: left presents unparented outside a container since enemy is going to make them their child to move
         }
-    }
+    }*/
 
 
 

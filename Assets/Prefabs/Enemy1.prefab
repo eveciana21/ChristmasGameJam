@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6386597046824537635}
   - component: {fileID: 7746130323593131658}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Arms
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5075862918139599311}
   - component: {fileID: 8306193610736039670}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5719392602539090693}
   - component: {fileID: 2410768322219616832}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -265,7 +265,7 @@ GameObject:
   - component: {fileID: 116024838949327014}
   - component: {fileID: 4874845808555276183}
   - component: {fileID: 877960006}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Enemy1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -367,7 +367,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 375983675
   m_SortingLayer: 1
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 7830f720eb3ff6f40b9e107bc738da2d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -394,6 +394,4 @@ MonoBehaviour:
   _moveSpeed: 1
   _health: 1
   _enemyBullet: {fileID: 7990488559296430861, guid: 492f2d671dbebac489d8da3d732ed7af, type: 3}
-  _material: {fileID: 0}
   _fadeDuration: 1
-  _startFadingOnStart: 1
