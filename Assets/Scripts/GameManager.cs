@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     private UIManager _uiManager;
     [SerializeField] private GameObject _controlsBox;
     private bool _getUIManager;
+    [SerializeField] private GameObject _pauseMenu;
 
 
     private void Start()
@@ -23,6 +24,17 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         PresentsRemaining();
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Time.timeScale = 0;
+            _pauseMenu.SetActive(true);
+        }
+    }
+
+    public void ResumeGame()
+    {
+        Time.timeScale = 1;
+        _pauseMenu.SetActive(false);
     }
 
     public void StartGame()
@@ -59,6 +71,7 @@ public class GameManager : MonoBehaviour
 
         if (numberOfInstances <= 0)
         {
+            _uiManager = GameObject.Find("UI Manager").GetComponent<UIManager>();
             if (_uiManager != null)
             {
                 _uiManager.GameOver();
