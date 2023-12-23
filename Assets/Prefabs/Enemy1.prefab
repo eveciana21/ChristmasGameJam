@@ -228,7 +228,7 @@ MonoBehaviour:
   _health: 1
   _enemyBullet: {fileID: 7990488559296430861, guid: 492f2d671dbebac489d8da3d732ed7af, type: 3}
   _audioSource: {fileID: -5325279620479851541}
-  _snowballHitClip: {fileID: 8300000, guid: c90d49026a986cf4b88ecca9c0486660, type: 3}
+  _snowballHitClip: {fileID: 8300000, guid: d924172350f66044bbb1e63ba1edfb84, type: 3}
   _anvilHitClip: {fileID: 8300000, guid: 05ded5656906ab4428b0a78e98729346, type: 3}
   _fadeDuration: 1
 --- !u!82 &-5325279620479851541
