@@ -51,17 +51,17 @@ public class Player : MonoBehaviour
             _canUseAnvil = false;
             _anvilActive = true;
         }
-
     }
 
     private void Fire()
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            _animator.SetTrigger("Throw");
+            //_animator.SetTrigger("Throw");
             Instantiate(_bullet, _bulletSpawnLocation.transform.position, transform.rotation);
             //fixed bullet position jank by adding empty object to reference position instead, child of player object
         }
+
     }
 
     private void Movement()
@@ -74,6 +74,23 @@ public class Player : MonoBehaviour
         //Clamp Player Within Screen Bounds
         transform.position = new Vector3(Mathf.Clamp(transform.position.x, -8, 8), transform.position.y, 0);
         transform.position = new Vector3(transform.position.x, Mathf.Clamp(transform.position.y, -4, 4), 0);
+
+        if (horizontal != 0)
+        {
+            _animator.SetBool("Walk", true);
+        }
+        if (vertical != 0)
+        {
+            _animator.SetBool("Walk", true);
+        }
+
+
+
+
+
+        //_animator.SetFloat("Walk", horizontal);
+        //_animator.SetFloat("Walk", vertical);
+
     }
 
     private void RotatePlayertoMousePosition()
@@ -111,6 +128,7 @@ public class Player : MonoBehaviour
     IEnumerator PlayerFreeze()
     {
         _isFrozen = true;
+        _animator.SetBool("Walk", false);
         _spriteRenderer.color = Color.blue;
         yield return new WaitForSeconds(1f);
         _spriteRenderer.color = Color.white;

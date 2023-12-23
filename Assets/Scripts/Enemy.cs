@@ -203,9 +203,9 @@ public class Enemy : MonoBehaviour
 
     IEnumerator ColorFlashOnDamage()
     {
-        _renderer.enabled = false;
-        yield return new WaitForSeconds(0.05f);
         _renderer.enabled = true;
+        yield return new WaitForSeconds(0.05f);
+        _renderer.enabled = false;
     }
 }
 
