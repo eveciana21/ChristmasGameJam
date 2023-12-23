@@ -9,6 +9,8 @@ public class Enemy : MonoBehaviour
     private ScreenShake _mainCamera;
     [SerializeField] private GameObject _enemyBullet;
     private bool _canFire = true;
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioClip _snowballHitClip;
 
     //variables for fade color
     private Material _material;
@@ -132,6 +134,8 @@ public class Enemy : MonoBehaviour
         if (other.tag == "Bullet")
         {
             _health--;
+            _audioSource.clip = _snowballHitClip;
+            _audioSource.Play();
             StartCoroutine(ColorFlashOnDamage());
 
             if (_mainCamera != null)
