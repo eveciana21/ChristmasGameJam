@@ -7,14 +7,14 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private GameObject[] _enemy;
     [SerializeField] private GameObject _enemyContainer;
     [SerializeField] private GameObject[] _spawnPos;
-    //[SerializeField] private GameObject[] _present;
+    [SerializeField] private GameObject _powerup;
     private bool _spawnWaveOne, _spawnWaveTwo, _spawnWaveThree, _spawnWaveFour;
 
 
     private void Start()
     {
-       // SpawnPresents();
         StartCoroutine(StartGameCoroutine());
+        StartCoroutine(SpawnPowerupCoroutine());
     }
 
     IEnumerator StartGameCoroutine()
@@ -25,21 +25,16 @@ public class SpawnManager : MonoBehaviour
         StartCoroutine(WaveIncrease());
     }
 
-    /*private void SpawnPresents()
+    IEnumerator SpawnPowerupCoroutine()
     {
-        for (int i = 0; i < 3; i++)
+        while (true)
         {
-            // spawns presents in the middle, and makes sure they cannot overlap when spawning
-            Vector3 presentSpawnLocation = new Vector3(Random.Range(-2, 2), Random.Range(-2, 2), 0);
-            Instantiate(_present[i], presentSpawnLocation, Quaternion.identity);
-
-            //spawns 3 presents randomly in a 4x4 square in the middle. Called once in Start
-            //note: left presents unparented outside a container since enemy is going to make them their child to move
+            int randomRange = Random.Range(15, 40);
+            Vector3 randomLocation = new Vector3(Random.Range(-6, 6), Random.Range(-3, 3), 0);
+            yield return new WaitForSeconds(randomRange);
+            Instantiate(_powerup, randomLocation, Quaternion.identity);
         }
-    }*/
-
-
-
+    }
 
     IEnumerator EnemySpawn()
     {

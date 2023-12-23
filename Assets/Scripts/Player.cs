@@ -20,6 +20,10 @@ public class Player : MonoBehaviour
     private bool _isFrozen = false;
     private SpriteRenderer _spriteRenderer;
 
+    [SerializeField] private GameObject _lassoAnvilAttack;
+
+    [SerializeField] private GameObject _iceSprite;
+
     private void Start()
     {
         _animator = GetComponent<Animator>();
@@ -51,6 +55,8 @@ public class Player : MonoBehaviour
             _canUseAnvil = false;
             _anvilActive = true;
         }
+
+
     }
 
     private void Fire()
@@ -129,9 +135,9 @@ public class Player : MonoBehaviour
     {
         _isFrozen = true;
         _animator.SetBool("Walk", false);
-        _spriteRenderer.color = Color.blue;
+        _iceSprite.SetActive(true);
         yield return new WaitForSeconds(1f);
-        _spriteRenderer.color = Color.white;
+        _iceSprite.SetActive(false);
         _isFrozen = false;
     }
 
@@ -142,6 +148,18 @@ public class Player : MonoBehaviour
             StartCoroutine(PlayerFreeze());
             Destroy(other.gameObject);
         }
+    }
+
+    public void LassoAttack()
+    {
+        StartCoroutine(LassoAnvilAttack());
+    }
+
+    IEnumerator LassoAnvilAttack()
+    {
+        _lassoAnvilAttack.SetActive(true);
+        yield return new WaitForSeconds(8);
+        _lassoAnvilAttack.SetActive(false);
     }
 
 }

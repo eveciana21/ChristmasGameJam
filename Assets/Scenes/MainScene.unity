@@ -187,6 +187,7 @@ MonoBehaviour:
   - {fileID: 1943324721}
   - {fileID: 258100062}
   - {fileID: 1248774029}
+  _powerup: {fileID: 8027685007648032432, guid: 1d05c9bc94da03f41be88f524ca43164, type: 3}
 --- !u!1001 &149574080
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1695,6 +1696,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 533157487}
   m_CullTransparentMesh: 1
+--- !u!1 &584235830 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8215650621079888597, guid: 84f340b353912de4ca2d0b0c6393031c, type: 3}
+  m_PrefabInstance: {fileID: 8215650621899665638}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &597836759
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11048,6 +11054,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 95733430, guid: 84f340b353912de4ca2d0b0c6393031c, type: 3}
+      propertyPath: _centralPoint
+      value: 
+      objectReference: {fileID: 584235830}
     - target: {fileID: 8215650621079888595, guid: 84f340b353912de4ca2d0b0c6393031c, type: 3}
       propertyPath: m_RootOrder
       value: 8
