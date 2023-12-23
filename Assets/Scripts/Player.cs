@@ -55,6 +55,8 @@ public class Player : MonoBehaviour
             _canUseAnvil = false;
             _anvilActive = true;
         }
+
+
     }
 
     private void Fire()
@@ -156,7 +158,7 @@ public class Player : MonoBehaviour
     IEnumerator LassoAnvilAttack()
     {
         _lassoAnvilAttack.SetActive(true);
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(8);
         _lassoAnvilAttack.SetActive(false);
     }
 
