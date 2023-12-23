@@ -21,7 +21,6 @@ public class Player : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
 
     [SerializeField] private GameObject _lassoAnvilAttack;
-    private bool _lassoAnvilAttackActive;
 
     private void Start()
     {
@@ -145,6 +144,19 @@ public class Player : MonoBehaviour
             StartCoroutine(PlayerFreeze());
             Destroy(other.gameObject);
         }
+    }
+
+    public void LassoAnvilAttack()
+    {
+        StartCoroutine(AnvilAttackCoroutine());
+    }
+
+    IEnumerator AnvilAttackCoroutine()
+    {
+        _lassoAnvilAttack.SetActive(true);
+        yield return new WaitForSeconds(5f);
+        _lassoAnvilAttack.SetActive(false);
+
     }
 
 }
