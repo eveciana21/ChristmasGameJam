@@ -10,6 +10,7 @@ TagManager:
   - Present
   - Anvil
   - EnemyBullet
+  - Powerup
   layers:
   - Default
   - TransparentFX
