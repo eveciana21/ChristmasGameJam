@@ -37,6 +37,11 @@ public class GameManager : MonoBehaviour
         _pauseMenu.SetActive(false);
     }
 
+    public void GoMainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+
     public void StartGame()
     {
         _getUIManager = true;
