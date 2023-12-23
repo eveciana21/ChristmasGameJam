@@ -15,6 +15,12 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Slider _anvilSlider;
     [SerializeField] private GameObject _useAnvilText;
     [SerializeField] private GameObject _victoryMenu;
+    [SerializeField] private Image _present0Sprite;
+    [SerializeField] private Image _present1Sprite;
+    [SerializeField] private Image _present2Sprite;
+    [SerializeField] private GameObject _present0;
+    [SerializeField] private GameObject _present1;
+    [SerializeField] private GameObject _present2;
 
     void Start()
     {
@@ -27,6 +33,7 @@ public class UIManager : MonoBehaviour
     void Update()
     {
         Timer();
+        UpdatePresentUI();
     }
 
     public void TimerActive()
@@ -77,6 +84,22 @@ public class UIManager : MonoBehaviour
             _useAnvilText.SetActive(false);
         }
 
+    }
+
+    private void UpdatePresentUI()
+    {
+        if (_present0 == null)
+        {
+            _present0Sprite.gameObject.SetActive(false);
+        }
+        if (_present1 == null)
+        {
+            _present1Sprite.gameObject.SetActive(false);
+        }
+        if (_present2 == null)
+        {
+            _present2Sprite.gameObject.SetActive(false);
+        }
     }
 
 }
