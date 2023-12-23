@@ -187,37 +187,6 @@ MonoBehaviour:
   - {fileID: 1943324721}
   - {fileID: 258100062}
   - {fileID: 1248774029}
---- !u!1 &121219979
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 121219980}
-  m_Layer: 0
-  m_Name: test
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &121219980
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 121219979}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 117.26988, y: 453.44507, z: -0.5165405}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &149574080
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8103,27 +8072,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!1 &1321334517 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8215650621079888597, guid: 84f340b353912de4ca2d0b0c6393031c, type: 3}
-  m_PrefabInstance: {fileID: 8215650621899665638}
-  m_PrefabAsset: {fileID: 0}
---- !u!58 &1321334523
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1321334517}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.06, y: 0.24}
-  serializedVersion: 2
-  m_Radius: 0.53
 --- !u!1 &1381949474
 GameObject:
   m_ObjectHideFlags: 0
@@ -10286,14 +10234,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8215650621079888592, guid: 84f340b353912de4ca2d0b0c6393031c, type: 3}
-      propertyPath: m_Size.y
-      value: 0.9904186
-      objectReference: {fileID: 0}
-    - target: {fileID: 8215650621079888592, guid: 84f340b353912de4ca2d0b0c6393031c, type: 3}
-      propertyPath: m_Offset.y
-      value: 0.16636923
-      objectReference: {fileID: 0}
     - target: {fileID: 8215650621079888595, guid: 84f340b353912de4ca2d0b0c6393031c, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -10342,8 +10282,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8215650621079888592, guid: 84f340b353912de4ca2d0b0c6393031c, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84f340b353912de4ca2d0b0c6393031c, type: 3}
 --- !u!64 &8261217886714736957
 MeshCollider:
