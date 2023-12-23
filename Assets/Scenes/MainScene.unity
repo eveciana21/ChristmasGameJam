@@ -170,10 +170,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemy:
-  - {fileID: 8632349121399473669, guid: 6dcc1212156558b4ebf64207eb325ddf, type: 3}
-  - {fileID: 8632349121399473669, guid: 9718685d2622ece4db5e3ed30ae441a9, type: 3}
+  - {fileID: 3507367621116761778, guid: 6dcc1212156558b4ebf64207eb325ddf, type: 3}
+  - {fileID: 6359702735190567440, guid: 9718685d2622ece4db5e3ed30ae441a9, type: 3}
   - {fileID: 8632349121399473669, guid: 864823026cbd5074995225cbb66c71e9, type: 3}
-  - {fileID: 8632349121399473669, guid: a5cd135b4238f474ba4b896ddf15f4af, type: 3}
+  - {fileID: 8268057495652437324, guid: a814d2fbd7c32a44fbf7dfe827a28b28, type: 3}
   _enemyContainer: {fileID: 1869825257}
   _spawnPos:
   - {fileID: 261732461}

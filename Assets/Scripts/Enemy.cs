@@ -201,16 +201,11 @@ public class Enemy : MonoBehaviour
         }
     }
 
-     IEnumerator ColorFlashOnDamage()
-     {
-         SpriteRenderer[] childRenderer = GetComponentsInChildren<SpriteRenderer>();
-         foreach (SpriteRenderer renderer in childRenderer)
-         {
-             _renderer.enabled = true;
-             yield return new WaitForSeconds(0.05f);
-             _renderer.enabled = false;
-         }
-
-     }
+    IEnumerator ColorFlashOnDamage()
+    {
+        _renderer.enabled = true;
+        yield return new WaitForSeconds(0.05f);
+        _renderer.enabled = false;
+    }
 }
 
