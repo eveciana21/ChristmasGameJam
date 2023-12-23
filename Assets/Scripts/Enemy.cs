@@ -11,6 +11,8 @@ public class Enemy : MonoBehaviour
     private bool _canFire = true;
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private AudioClip _snowballHitClip;
+    [SerializeField] private AudioClip _anvilHitClip;
+
 
     //variables for fade color
     private Material _material;
@@ -133,9 +135,9 @@ public class Enemy : MonoBehaviour
     {
         if (other.tag == "Bullet")
         {
-            _health--;
             _audioSource.clip = _snowballHitClip;
             _audioSource.Play();
+            _health--;
             StartCoroutine(ColorFlashOnDamage());
 
             if (_mainCamera != null)
@@ -152,6 +154,8 @@ public class Enemy : MonoBehaviour
         }
         if (other.tag == "Anvil")
         {
+            _audioSource.clip = _anvilHitClip;
+            _audioSource.Play();
             _health -= 5;
             StartCoroutine(ColorFlashOnDamage());
 

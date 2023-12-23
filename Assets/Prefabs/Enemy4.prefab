@@ -106,6 +106,7 @@ MonoBehaviour:
   _enemyBullet: {fileID: 7990488559296430861, guid: 492f2d671dbebac489d8da3d732ed7af, type: 3}
   _audioSource: {fileID: -3605551914970486544}
   _snowballHitClip: {fileID: 8300000, guid: c90d49026a986cf4b88ecca9c0486660, type: 3}
+  _anvilHitClip: {fileID: 8300000, guid: 05ded5656906ab4428b0a78e98729346, type: 3}
   _fadeDuration: 1
 --- !u!95 &901515997262347565
 Animator:
