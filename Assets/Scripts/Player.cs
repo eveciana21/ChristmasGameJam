@@ -20,6 +20,9 @@ public class Player : MonoBehaviour
     private bool _isFrozen = false;
     private SpriteRenderer _spriteRenderer;
 
+    [SerializeField] private GameObject _lassoAnvilAttack;
+    private bool _lassoAnvilAttackActive;
+
     private void Start()
     {
         _animator = GetComponent<Animator>();
