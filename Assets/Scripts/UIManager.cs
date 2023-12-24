@@ -22,6 +22,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject _present1;
     [SerializeField] private GameObject _present2;
 
+    [SerializeField] private AudioSource _audioSource;
+
     void Start()
     {
         _timerActive = true;
@@ -55,6 +57,7 @@ public class UIManager : MonoBehaviour
                 Time.timeScale = 0;
                 _victoryMenu.SetActive(true);
                 _timerActive = false;
+                _audioSource.Play();
             }
         }
         TimeSpan time = TimeSpan.FromSeconds(_currentTime);
