@@ -1686,8 +1686,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2142903540}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+      - m_Target: {fileID: 1705952230}
+        m_TargetAssemblyTypeName: UIMainMenu, Assembly-CSharp
         m_MethodName: ExitControlsBox
         m_Mode: 1
         m_Arguments:
@@ -9976,7 +9976,9 @@ MonoBehaviour:
   delay: 0.05
   _dialogBox: {fileID: 1161158290}
   _exitDialogBoxButton: {fileID: 647008297}
-  _buttons: {fileID: 0}
+  _buttons: {fileID: 1654848386}
+  _controlsBox: {fileID: 1409164546}
+  _exitControls: {fileID: 0}
 --- !u!1 &1809275069
 GameObject:
   m_ObjectHideFlags: 0
@@ -10732,9 +10734,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2142903540}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: Controls
+      - m_Target: {fileID: 1705952230}
+        m_TargetAssemblyTypeName: UIMainMenu, Assembly-CSharp
+        m_MethodName: ControlsBox
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

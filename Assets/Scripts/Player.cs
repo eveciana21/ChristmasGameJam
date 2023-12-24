@@ -18,7 +18,6 @@ public class Player : MonoBehaviour
 
     [SerializeField] private GameObject _rudolph;
     private bool _isFrozen = false;
-    private SpriteRenderer _spriteRenderer;
 
     [SerializeField] private GameObject _lassoAnvilAttack;
 
@@ -28,7 +27,6 @@ public class Player : MonoBehaviour
     {
         _animator = GetComponent<Animator>();
         _uiManager = GameObject.Find("UI Manager").GetComponent<UIManager>();
-        _spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
     }
     void Update()
     {
@@ -89,13 +87,6 @@ public class Player : MonoBehaviour
         {
             _animator.SetBool("Walk", true);
         }
-
-
-
-
-
-        //_animator.SetFloat("Walk", horizontal);
-        //_animator.SetFloat("Walk", vertical);
 
     }
 

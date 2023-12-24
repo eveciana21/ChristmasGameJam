@@ -14,6 +14,8 @@ public class UIMainMenu : MonoBehaviour
     [SerializeField] private GameObject _exitDialogBoxButton;
 
     [SerializeField] private GameObject _buttons;
+    [SerializeField] private GameObject _controlsBox;
+    [SerializeField] private GameObject _exitControls;
 
     private void Start()
     {
@@ -38,7 +40,18 @@ public class UIMainMenu : MonoBehaviour
     public void EnableDialogBox()
     {
         _dialogBox.SetActive(true);
+        _controlsBox.SetActive(false);
+        _buttons.SetActive(false);
         StartCoroutine(TypeText());
+    }
+
+    public void ControlsBox()
+    {
+        _controlsBox.SetActive(true);
+    }
+    public void ExitControlsBox()
+    {
+        _controlsBox.SetActive(false);
     }
 
 

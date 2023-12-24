@@ -53,7 +53,7 @@ public class SpawnManager : MonoBehaviour
             int randomEnemy = Random.Range(0, 2);
             GameObject newEnemy = Instantiate(_enemy[randomEnemy], _spawnPos[randomLocation].transform.position, Quaternion.identity);
             newEnemy.transform.parent = _enemyContainer.transform;
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.9f);
         }
         while (_spawnWaveThree == true)
         {
@@ -62,7 +62,7 @@ public class SpawnManager : MonoBehaviour
             int randomEnemy = Random.Range(0, 3);
             GameObject newEnemy = Instantiate(_enemy[randomEnemy], _spawnPos[randomLocation].transform.position, Quaternion.identity);
             newEnemy.transform.parent = _enemyContainer.transform;
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.8f);
         }
         while (_spawnWaveFour == true)
         {
@@ -71,7 +71,7 @@ public class SpawnManager : MonoBehaviour
             int randomEnemy = Random.Range(0, _enemy.Length);
             GameObject newEnemy = Instantiate(_enemy[randomEnemy], _spawnPos[randomLocation].transform.position, Quaternion.identity);
             newEnemy.transform.parent = _enemyContainer.transform;
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.8f);
         }
     }
 
