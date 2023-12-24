@@ -58,15 +58,6 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-    public void Controls()
-    {
-        _controlsBox.SetActive(true);
-    }
-    public void ExitControlsBox()
-    {
-        _controlsBox.SetActive(false);
-    }
-
     public void QuitGame()
     {
         Application.Quit();
