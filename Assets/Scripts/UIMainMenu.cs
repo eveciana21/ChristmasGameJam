@@ -13,6 +13,8 @@ public class UIMainMenu : MonoBehaviour
     [SerializeField] private GameObject _dialogBox;
     [SerializeField] private GameObject _exitDialogBoxButton;
 
+    [SerializeField] private GameObject _buttons;
+
     private void Start()
     {
         _exitDialogBoxButton.SetActive(false);
