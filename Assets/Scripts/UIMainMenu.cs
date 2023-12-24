@@ -38,6 +38,7 @@ public class UIMainMenu : MonoBehaviour
     public void EnableDialogBox()
     {
         _dialogBox.SetActive(true);
+        _buttons.SetActive(false);
         StartCoroutine(TypeText());
     }
 

@@ -9969,7 +9969,7 @@ MonoBehaviour:
   delay: 0.05
   _dialogBox: {fileID: 1161158290}
   _exitDialogBoxButton: {fileID: 647008297}
-  _buttons: {fileID: 0}
+  _buttons: {fileID: 1654848386}
 --- !u!1 &1809275069
 GameObject:
   m_ObjectHideFlags: 0
