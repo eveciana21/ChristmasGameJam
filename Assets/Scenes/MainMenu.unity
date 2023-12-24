@@ -849,6 +849,13 @@ MonoBehaviour:
   _anvilSlider: {fileID: 0}
   _useAnvilText: {fileID: 0}
   _victoryMenu: {fileID: 0}
+  _present0Sprite: {fileID: 0}
+  _present1Sprite: {fileID: 0}
+  _present2Sprite: {fileID: 0}
+  _present0: {fileID: 0}
+  _present1: {fileID: 0}
+  _present2: {fileID: 0}
+  _audioSource: {fileID: 0}
 --- !u!1 &312571565
 GameObject:
   m_ObjectHideFlags: 0
@@ -9112,7 +9119,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1409164547
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10005,8 +10012,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 2}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0.000061035156, y: -0.000060081482}
+  m_SizeDelta: {x: -130.68, y: 22.855}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1809275071
 MonoBehaviour:
@@ -10062,7 +10069,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 4
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -10091,7 +10098,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 66.08275, y: -8.344629, z: 66.082756, w: -9.103238}
+  m_margin: {x: 23.678444, y: -8.344629, z: 28.425339, w: -4.297208}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -11075,6 +11082,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _controlsBox: {fileID: 1409164546}
   _pauseMenu: {fileID: 0}
+  _audioSource: {fileID: 0}
 --- !u!64 &8261217886714736957
 MeshCollider:
   m_ObjectHideFlags: 0
