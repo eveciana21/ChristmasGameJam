@@ -172,7 +172,7 @@ public class Enemy : MonoBehaviour
 
         if (other.tag == "Present")
         {
-            other.gameObject.transform.parent = this.gameObject.transform;
+            //other.gameObject.transform.parent = this.gameObject.transform;
             other.gameObject.transform.position = this.gameObject.transform.position;
             _grabbedPresent = true;
             //makes enemy "grab" present
@@ -183,7 +183,7 @@ public class Enemy : MonoBehaviour
     {
         if (other.tag == "Present")
         {
-            other.gameObject.transform.parent = null;
+            //other.gameObject.transform.parent = null;
             _detectedBorder = false;
             _grabbedPresent = false;
             _distanceToClosestPresent = Mathf.Infinity;
