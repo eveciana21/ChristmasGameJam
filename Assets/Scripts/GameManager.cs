@@ -10,6 +10,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject _controlsBox;
     private bool _getUIManager;
     [SerializeField] private GameObject _pauseMenu;
+    [SerializeField] private AudioSource _audioSource;
+    private bool _playLosingSound = true;
+    private bool _isGameOver = false;
 
 
     private void Start()
@@ -29,6 +32,7 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0;
             _pauseMenu.SetActive(true);
         }
+        PlayLosingSound();
     }
 
     public void ResumeGame()
@@ -79,8 +83,19 @@ public class GameManager : MonoBehaviour
             _uiManager = GameObject.Find("UI Manager").GetComponent<UIManager>();
             if (_uiManager != null)
             {
+                Time.timeScale = 0;
                 _uiManager.GameOver();
+                _isGameOver = true;
             }
+        }
+    }
+
+    private void PlayLosingSound()
+    {
+        if (_isGameOver == true && _playLosingSound == true)
+        {
+            _audioSource.Play();
+            _playLosingSound = false;
         }
     }
 
