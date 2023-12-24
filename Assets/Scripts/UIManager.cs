@@ -24,6 +24,8 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] private AudioSource _audioSource;
 
+    [SerializeField] private bool _pressSpaceIsActive;
+
     void Start()
     {
         _timerActive = true;
@@ -80,13 +82,26 @@ public class UIManager : MonoBehaviour
 
         if (_anvilSlider.value == 100)
         {
-            _useAnvilText.SetActive(true);
+            _pressSpaceIsActive = true;
+            StartCoroutine(BlinkCoroutine());
         }
         else
         {
+            _pressSpaceIsActive = false;
             _useAnvilText.SetActive(false);
         }
 
+    }
+
+    IEnumerator BlinkCoroutine()
+    {
+        while (_pressSpaceIsActive == true)
+        {
+            _useAnvilText.SetActive(true);
+            yield return new WaitForSeconds(0.5f);
+            _useAnvilText.SetActive(false);
+            yield return new WaitForSeconds(0.5f);
+        }
     }
 
     private void UpdatePresentUI()

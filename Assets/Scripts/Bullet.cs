@@ -6,7 +6,7 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] private float _speed;
     private int _randomValue;
-    private Vector3 _direction;
+    [SerializeField] private GameObject _particleEffect;
     private void Start()
     {
         _randomValue = Random.Range(0, 15);
@@ -28,5 +28,15 @@ public class Bullet : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+
+        if (other.tag == "Enemy")
+        {
+            GameObject newSnowball = Instantiate(_particleEffect, transform.position, Quaternion.identity);
+            Destroy(newSnowball, 2);
+        }
     }
+
+    
+
+
 }
